@@ -83,21 +83,26 @@ const deleteUserById = async (req, res) => {
 
 const updateUser = async (req, res) => {
     const { id, email, password } = req.body;
-
     try {
         const user = await User.findById(id);
 
         if (!user) {
             return res.status(404).json({ ok: false, msg: 'User not found' });
         }
-
         user.email = email || user.email;
         user.password = password || user.password;
         await user.save();
 
-        return res.status(200).json({ ok: true, msg: `User with ID ${id} updated successfully`, user });
+        return res.status(200).json({ 
+            ok: true, 
+            msg: `User with ID ${id} updated successfully`, 
+            user 
+        });
     } catch (error) {
-        return res.status(500).json({ ok: false, msg: 'Server error' });
+        return res.status(500).json({ 
+            ok: false, 
+            msg: 'Server error' 
+        });
     }
 };
 
@@ -105,18 +110,27 @@ const getUserById = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if (!user) {
-            return res.status(404).json({ ok: false, msg: 'User not found' });
+            return res.status(404).json({ 
+                ok: false, 
+                msg: 'User not found' 
+            });
         }
         return res.status(200).json({ ok: true, user });
     } catch (error) {
-        return res.status(500).json({ ok: false, msg: 'Server error' });
+        return res.status(500).json({ 
+            ok: false, 
+            msg: 'Server error' 
+        });
     }
 };
 
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.find();
-        return res.status(200).json({ ok: true, users });
+        return res.status(200).json({ 
+            ok: true, 
+            users 
+        });
     } catch (error) {
         return res.status(500).json({ ok: false, msg: 'Server error' });
     }
