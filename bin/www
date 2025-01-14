@@ -1,0 +1,14 @@
+const app = require('./../index')
+const http = require('http')
+const port = process.env.PORT
+
+app.set('port', port)
+
+const server = http.createServer(app)
+
+server.on('error', (error) => {
+    console.log(`Error en el server: ${ error }`)
+})
+server.on('listening', () => {
+    console.log(`Server connected on port ${ port }`)
+})

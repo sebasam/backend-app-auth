@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "start node index.js && jest",
-    "dev": "nodemon index.js"
+    "test": "jest",
+    "dev": "nodemon /bin/www"
   },
   "keywords": [],
   "author": "",
@@ -16,11 +16,13 @@
     "express": "^4.21.1",
     "express-validator": "^7.2.0",
     "http": "^0.0.1-security",
-    "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.2",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.7",
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
     "supertest": "^7.0.0"
   }
 }
