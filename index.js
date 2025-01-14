@@ -14,12 +14,4 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 app.use('/', api)
 
-app.listen(PORT, () => {
-    try {
-        console.log(`Server connected on port ${ PORT }`)
-    } catch(error){
-        console.log(`Error in server, Error: `, error)
-    }
-})
-
 module.exports = app
